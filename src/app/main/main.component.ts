@@ -408,6 +408,7 @@ export class MainComponent implements OnInit {
     sessionStorage.removeItem("user");
     sessionStorage.removeItem("status");
     sessionStorage.removeItem("status2");
+    this.profServ.account = "";
 
 
 
