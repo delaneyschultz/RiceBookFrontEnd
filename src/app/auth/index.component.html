@@ -1,0 +1,61 @@
+
+<div class="container-fluid p-5 text-white text-center" style="background-color: dodgerblue">
+  <h1>Welcome to RiceBook</h1>
+</div>
+<body>
+<div class="parent-container d-flex">
+  <div class="container" id="c1">
+    <div class="row">
+      <header>
+        Registration
+      </header>
+      <div class="col">
+        <app-registration></app-registration>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="logForm" (ngSubmit)="onSubmit()" class="container" id="c2">
+    <div class="row">
+      <header>
+        Login
+      </header>
+      <div class="col">
+        <div class="form-horizontal">
+          <div class="form-group" style="margin-bottom:30px">
+            <label class="control-label col-sm-2" for="username">Username:</label>
+            <div class="col-sm-10">
+              <input type="username" class="form-control" formControlName="username" id="username" placeholder="Enter username">
+            </div>
+              <p id = "username-error-msg" style="color: red; "></p>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Password:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" formControlName="password" id="pwd" placeholder="Enter password">
+            </div>
+              <p  id = "password-error-msg" style="color: red"></p>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div>
+                <button id = "button-user" type = "submit" class="btn btn-primary" class="horizontal-center">Login</button>
+              </div>
+              <div  *ngIf="((username2 === User[0].username) && (password2 === passwords[0])) || ((username2 === User[1].username) && (password2 === passwords[1])) ||
+((username2 === User[2].username) && (password2 === passwords[2])) || ((username2 === User[3].username) && (password2 === passwords[3])) || ((username2 === User[4].username) && (password2 === passwords[4]))
+|| ((username2 === User[5].username) && (password2 === passwords[5])) || ((username2 === User[6].username) && (password2 === passwords[6])) || ((username2 === User[7].username) && (password2 === passwords[7]))
+|| ((username2 === User[8].username) && (password2 === passwords[8])) || ((username2 === User[9].username) && (password2 === passwords[9]))">
+              {{redirect()}}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+
+

@@ -1,0 +1,311 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<ul class = "n">
+  <li><a class="active" routerLink=''>Home</a></li>
+  <li><a routerLink='/main'>Main</a></li>
+  <li><a routerLink='/profile'>Profile</a></li>
+</ul>
+
+
+
+<div class="container text-center" style="margin-top: 35px; margin-left: 1%; width:100%;">
+  <div class="row">
+    <div class="col-sm-3 well" id="outer2"  style="margin-left: 1%">
+      <div class="well" id="in">
+        <img class="rounded-circle mt-5" width="150px" style="margin-bottom: 15px" src="https://m.media-amazon.com/images/I/41jLBhDISxL.jpg">
+        <br>
+
+        <div>{{user}}</div>
+
+        <br>
+        <button class="btn btn-primary"  (click)="gotoLanding()" style = "margin-right: 5px">Log out</button>
+        <button class="btn btn-primary" (click)="gotoProfile()">Profile</button>
+      </div>
+      <div class="well" id="in3">
+        <form class="form-inline waves-light" mdbWavesEffect>
+          <div class="md-form mt-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          </div>
+        </form>
+      </div>
+
+      <div class="well" id="in1">
+        <p>{{newStatus}}</p>
+        <input type="text" id="status2" name="status" placeholder="New Status">
+        <button class="btn btn-primary" type="button" (click)="changeStatus()" style="margin-top: 10px">Update Status</button>
+      </div>
+      <div class="well" id="in2">
+        <input style="margin-right: 2px; width:150px;" type="text" id="follower2" name="follower" placeholder="New Follower">
+        <button class="btn btn-primary" style="margin-bottom: 5px; margin-left: 3px;" type="button" (click)="addFollower()">Add</button>
+        <div *ngIf="!(newFollower=='Bret' || newFollower=='Antonette' || newFollower=='Samantha' || newFollower=='Karianne' || newFollower=='Kamren' || newFollower=='Leopoldo_Corkery' || newFollower=='Elwyn.Skiles'
+        || newFollower=='Maxime_Nienow' || newFollower=='Delphine' || newFollower=='Moriah.Stanton') && newFollower != ''" id="103">
+          <p style="color: red; ">User does not exist</p>
+        </div>
+        <div class="well" *ngIf="newFollower=='Bret' || newFollower=='Antonette' || newFollower=='Samantha' || newFollower=='Karianne' || newFollower=='Kamren' || newFollower=='Leopoldo_Corkery' || newFollower=='Elwyn.Skiles'
+        || newFollower=='Maxime_Nienow' || newFollower=='Delphine' || newFollower=='Moriah.Stanton'" id="102">
+          <p>{{newFollower}}</p>
+          <p *ngIf="newFollower=='Bret'">
+            {{phrases[0]}}
+          <p>
+          <p *ngIf="newFollower=='Antonette'">
+            {{phrases[1]}}
+          <p>
+          <p *ngIf="newFollower=='Samantha'">
+            {{phrases[2]}}
+          <p>
+          <p *ngIf="newFollower=='Karianne'">
+            {{phrases[3]}}
+          <p>
+          <p *ngIf="newFollower=='Kamren'">
+            {{phrases[4]}}
+          <p>
+          <p *ngIf="newFollower=='Leopoldo_Corkery'">
+            {{phrases[5]}}
+          <p>
+          <p *ngIf="newFollower=='Elwyn.Skiles'">
+            {{phrases[6]}}
+          <p>
+          <p *ngIf="newFollower=='Maxime_Nienow'">
+            {{phrases[7]}}
+          <p>
+          <p *ngIf="newFollower=='Delphine'">
+            {{phrases[8]}}
+          <p>
+          <p *ngIf="newFollower=='Moriah.Stanton'">
+            {{phrases[9]}}
+          <p>
+          <img class="rounded-circle mt-2" width="150px"  src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg">
+          <button class="btn btn-primary" style="margin-top: 5px" type="button" (click)="unFollow('102')">Unfollow</button>
+        </div>
+          <div *ngFor="let follower of followers">
+            <div class="well" id="40" *ngIf = "contains(follower.name) == false">
+              <p>{{follower.name}}</p>
+              <p>{{follower.status}}</p>
+              <img class="rounded-circle mt-2" width="150px"  src="https://m.media-amazon.com/images/I/41r0oAaPp0L._SX466_.jpg">
+              <button class="btn btn-primary" style="margin-top: 5px" type="button" (click)="unFollow(follower.name)">Unfollow</button>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="container">
+          <div class="col-sm-4" style="margin-right: 30px;">
+            <div id="image2">
+              <input type="file" class="horizontal-center" style="height:150px; width:250px">
+            </div>
+            <button  class="horizontal-center" id="btn11" (click)="cancel()" style="width:250px; border-radius: 10px;">Cancel</button>
+          </div>
+          <div class="col-sm-4">
+            <textarea rows="20" cols="50" id="post2" name="post" style="height:150px; width:250px;" placeholder="Your post here"></textarea><br>
+            <button type="button" class="btn btn-primary" class="horizontal-center" id="btn12" (click)="post()" style="width:250px; border-radius: 10px;" (click)="addPost()">Post</button>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-xl-12">
+        <div class="row">
+          <div class="container-fluid">
+            <div class="col-sm-4 p-1" *ngIf="isShow==true">
+              <div class="feed p-1">
+                <div class="bg-white border mt-2">
+                  <div>
+                    <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                      <div class="d-flex flex-row align-items-center feed-text px-2">
+                        <div class="d-flex flex-column flex-wrap ml-2">
+                          <div class="font-weight-bold">{{user}}</div>
+                          <div class="text-black-50 time">1 sec ago</div>
+                        </div>
+                      </div>
+                      <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                    </div>
+                  </div>
+                  <div class="p-2 px-5" style="height: 170px;width: 100%;">{{po}}</div>
+                  <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+                  <div class="bg-white border mt-1">
+                    <div>
+                      <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                        <div class="d-flex flex-row align-items-center feed-text px-2">
+                          <div class="d-flex flex-column flex-wrap ml-2" class="btn-group">
+                            <button>Edit</button>
+                            <button>Comment</button>
+                          </div>
+                          <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="isShow2 == false && isShow3 == false">
+              <div *ngFor="let post of allPosts; index as i">
+                <div class="col-sm-4 p-1">
+                  <div class="feed p-1">
+                    <div class="bg-white border mt-2">
+                      <div>
+                        <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                          <div class="d-flex flex-row align-items-center feed-text px-2">
+                            <div class="d-flex flex-column flex-wrap ml-2">
+                              <div *ngIf = "post.person > 0"class="font-weight-bold">{{User[post.person - 1].username}}</div>
+                              <div *ngIf = "post.person < 0 "class="font-weight-bold">{{acc}}</div>
+                              <div class="text-black-50 time">{{timeOptions[i]}}</div>
+                            </div>
+                          </div>
+                          <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                        </div>
+                      </div>
+                      <img width=200px length=150px src="https://media.nationalgeographic.org/assets/photos/380/216/1c9ab248-0c9c-413d-b0c8-ce8aec56b821.jpg">
+                      <div class="p-2 px-3" style="height: 170px;width: 100%;"><span>{{post.content}}</span></div>
+                      <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+                      <div class="bg-white border mt-1">
+                        <div>
+                          <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                            <div class="d-flex flex-row align-items-center feed-text px-2">
+                              <div class="d-flex flex-column flex-wrap ml-2" class="btn-group">
+                                <button>Edit</button>
+                                <button>Comment</button>
+                                <div class="dropdown">
+                                  <button class="dropbtn">Comments</button>
+                                  <div id="myDropdown" class="dropdown-content">
+                                    <a >user234: I totally agree! </a><br>
+                                    <a >david9: cool post!</a><br>
+                                    <a >sarahPalmer: I miss you! Hope to see you soon. Let's get dinner.</a>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                              <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+
+
+
+            </div>
+            <div *ngIf="isShow2 == true && isShow3 == false">
+              <div *ngFor="let post of allPosts; index as i">
+                <div class="col-sm-4 p-1">
+                  <div class="feed p-1">
+                    <div class="bg-white border mt-2">
+                      <div>
+                        <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                          <div class="d-flex flex-row align-items-center feed-text px-2">
+                            <div class="d-flex flex-column flex-wrap ml-2">
+                              <div *ngIf = "post.person > 0"class="font-weight-bold">{{User[post.person - 1].username}}</div>
+                              <div *ngIf = "post.person < 0 "class="font-weight-bold">{{acc}}</div>
+                              <div class="text-black-50 time">{{timeOptions[i]}}</div>
+                            </div>
+                          </div>
+                          <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                        </div>
+                      </div>
+                      <img width=200px length=150px src="https://media.nationalgeographic.org/assets/photos/380/216/1c9ab248-0c9c-413d-b0c8-ce8aec56b821.jpg">
+                      <div class="p-2 px-3" style="height: 170px;width: 100%;"><span>{{post.content}}</span></div>
+                      <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+                      <div class="bg-white border mt-1">
+                        <div>
+                          <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                            <div class="d-flex flex-row align-items-center feed-text px-2">
+                              <div class="d-flex flex-column flex-wrap ml-2" class="btn-group">
+                                <button>Edit</button>
+                                <button>Comment</button>
+                              </div>
+                              <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+
+            <div *ngIf="isShow3 == true">
+              <div *ngFor="let post of allPosts; index as i">
+                <div class="col-sm-4 p-1">
+                  <div class="feed p-1">
+                    <div class="bg-white border mt-2">
+                      <div>
+                        <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                          <div class="d-flex flex-row align-items-center feed-text px-2">
+                            <div class="d-flex flex-column flex-wrap ml-2">
+                              <div *ngIf = "post.person > 0"class="font-weight-bold">{{User[post.person - 1].username}}</div>
+                              <div *ngIf = "post.person < 0 "class="font-weight-bold">{{acc}}</div>
+                              <div class="text-black-50 time">{{timeOptions[i]}}</div>
+                            </div>
+                          </div>
+                          <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                        </div>
+                      </div>
+                      <img width=200px length=150px src="https://media.nationalgeographic.org/assets/photos/380/216/1c9ab248-0c9c-413d-b0c8-ce8aec56b821.jpg">
+                      <div class="p-2 px-3" style="height: 170px;width: 100%;"><span>{{post.content}}</span></div>
+                      <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+                      <div class="bg-white border mt-1">
+                        <div>
+                          <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                            <div class="d-flex flex-row align-items-center feed-text px-2">
+                              <div class="d-flex flex-column flex-wrap ml-2" class="btn-group">
+                                <button>Edit</button>
+                                <button>Comment</button>
+                              </div>
+                              <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+</body>
+</html>
+
+

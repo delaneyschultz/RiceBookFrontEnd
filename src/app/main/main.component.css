@@ -1,0 +1,120 @@
+
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+body{
+  border-right: 175px solid cornflowerblue;
+}
+
+#outer, #outer2{
+  background-color: cornflowerblue;
+}
+
+#inner, #inner1, #inner2, #in, #in1, #in2, #in3, #in4{
+  background-color: white;
+}
+
+#btn1, #btn2, #btn11, #btn12{
+  margin-top: 5px;
+  background-color: lightskyblue;
+  color:white;
+  border-color: lightskyblue;
+}
+#post{
+  background-color: white;
+  border-radius: 6px;
+  border-color: lightskyblue;
+}
+.n{
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index:1;
+}
+#image, #image2{
+  height:150px;
+  width:250px;
+  border-color: lightskyblue;
+  border-style: solid;
+  border-radius: 6px;
+}
+.btn-group button {
+  background-color: lightskyblue; /* Green background */
+  border: royalblue; /* Green border */
+  color: white; /* White text */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  margin: 3px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: dodgerblue;
+}
+#container1 {
+  height: 90vh;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+ul {
+  list-style-type: none;
+  margin-bottom: 15px;
+  padding: 0;
+  overflow: hidden;
+  background-color: royalblue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

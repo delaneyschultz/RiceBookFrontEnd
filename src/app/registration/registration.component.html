@@ -1,0 +1,140 @@
+
+
+<form [formGroup]="regForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <div class="mb-3" class="form-Group" style="float:left; margin-right: 30px; margin-left: 30px">
+    <label class = "form-label" for="account">Account name: </label>
+    <div class="col-sm-3">
+      <input type = "text" id = "account" class = "form-control" name = "account" formControlName="account" placeholder = "your account name" required/>
+    </div>
+    <div
+      *ngIf="!account?.valid && (account?.dirty ||account?.touched)">
+      <div [hidden]="!account.errors?.required" style="font-size: 12px; color: red">
+        Account name is required
+      </div>
+      <div [hidden]="!account.errors?.pattern" style="font-size: 12px; color: red">
+        Account name must start with a letter
+      </div>
+
+    </div>
+    <div *ngIf="num==true">
+      <p  style="font-size: 12px; color: red">Can not start with a number</p>
+    </div>
+  </div>
+
+  <div class="mb-4" id="2" style="float:left" class="form-Group">
+    <label class = "form-label" for="display">Display name: </label>
+    <div class="col-sm-4">
+      <input type = "text" id = "display" class = "form-control" name = "display" formControlName="display" placeholder = "your display name" required/>
+    </div>
+  </div>
+  <div style="clear:both;">
+    <div class="mb-3" style="float:left; margin-right: 30px; margin-left: 30px" class="form-Group">
+      <label class = "form-label" for="email">Email Address: </label>
+      <div class="col-sm-3">
+        <input type = "email" id = "email" id = "email" class = "form-control" name = "email" formControlName="email" placeholder = "email address" required/>
+      </div>
+      <div
+        *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+        <div [hidden]="!email.errors?.required" style="font-size: 12px; color: red">
+          Email is required
+        </div>
+        <div [hidden]="!email.errors?.email" style="font-size: 12px; color: red">
+          Invalid email address
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-4" style="float:left" class="form-Group">
+      <label class = "form-label" for="phone">Phone Number: </label>
+      <div class="col-sm-4">
+        <input type = "tel" id = "phone" class = "form-control" name = "phone" formControlName="phone" placeholder = "1231231234" required/>
+      </div>    <div
+      *ngIf="!phone?.valid && (phone?.dirty ||phone?.touched)">
+      <div [hidden]="!phone.errors?.required" style="font-size: 12px; color: red">
+        Phone number is required
+      </div>
+      <div [hidden]="!phone.errors?.pattern" style="font-size: 12px; color: red">
+        Phone number must be a valid 10-digit number
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+  <div style="clear:both;">
+    <div class="mb-3" class="form-Group" style="float:left; margin-right: 30px; margin-left: 30px">
+      <label class = "form-label" for="date">Date of birth  (mm/dd/yyyy): </label>
+      <div class="col-sm-3">
+        <input type = "date" id = "date" class = "form-control" name = "date" formControlName="date" placeholder = "dd/mm/yyyy" required/>
+      </div>
+      <div *ngIf="young==true">
+        <p  style="font-size: 12px; color: red">Must be older than 18</p>
+      </div>
+
+    </div>
+
+
+    <div class="mb-4" style="float:left;" class="form-Group">
+      <label class = "form-label" for="zip">Zip code (5 digits): </label>
+      <div class="col-sm-4">
+        <input type = "text" id = "zip" class = "form-control" name = "zip" formControlName="zip" placeholder = "12345" required pattern = "[0-9]{5}" title = "Five digit zip code" />
+      </div>
+      <div
+        *ngIf="!zip?.valid && (zip?.dirty ||zip?.touched)">
+        <div [hidden]="!zip.errors?.required" style="font-size: 12px; color: red">
+          Zip code is required
+        </div>
+        <div [hidden]="!zip.errors?.pattern" style="font-size: 12px; color: red">
+          Zip code must be a valid 5-digit number
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div style="clear:both;">
+    <div class="mb-3" style="float:left; margin-right: 30px; margin-left: 30px" class="form-Group">
+      <label class = "form-label" for="pwd1">Password: </label>
+      <div class="col-sm-3">
+        <input type = "password" id = "pwd1" class = "form-control" name = "pwd1" formControlName="pwd1" required/>
+      </div>
+      <div
+        *ngIf="!pwd1?.valid && (pwd1?.dirty ||pwd1?.touched)">
+        <div [hidden]="!pwd1.errors?.required" style="font-size: 12px; color: red">
+          Password is required
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-4" style="float:left;" class="form-Group">
+      <label class = "form-label" for="pwd2">Confirm password: </label>
+      <div class="col-sm-4">
+        <input type = "password" id = "pwd2" class = "form-control" name = "pwd2" formControlName="pwd2" required/>
+      </div>
+      <div
+        *ngIf="!pwd2?.valid && (pwd2?.dirty ||pwd2?.touched)">
+        <div [hidden]="!pwd2.errors?.required" style="font-size: 12px; color: red">
+          Password confirmation is required
+        </div>
+      </div>
+      <div *ngIf="alert==true">
+        <p  style="font-size: 12px; color: red">Passwords do not match</p>
+      </div>
+    </div>
+
+
+    <div class="form-group" style="clear:both;">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type = "submit" class="btn btn-primary" class="horizontal-center" [disabled]="!regForm.valid">Register</button>
+      </div>
+    </div>
+
+  </div>
+
+</form>
+

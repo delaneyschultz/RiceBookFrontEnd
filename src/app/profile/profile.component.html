@@ -1,0 +1,101 @@
+
+
+<body>
+
+<ul class = "n">
+  <li><a routerLink=''>Home</a></li>
+  <li><a routerLink='/main'>Main</a></li>
+  <li><a class="active">Profile</a></li>
+
+</ul>
+
+<div class="container rounded bg-white mt-5 mb-5">
+
+
+  <div class="row">
+
+    <div class="col-md-3 border-right" style="margin-right: 200px; margin-left: 100px; margin-top:50px; background-color: lightskyblue" >
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5" style="margin-bottom: 10px"><img class="rounded-circle mt-5" width="150px"  src="https://m.media-amazon.com/images/I/41jLBhDISxL.jpg">
+
+        <div style="margin: 5px; color: white; line-height: 2em; font-size: 15px">
+          Username: <span class="text-white">{{user}}</span><br>
+          Password: <span class="text-white">{{pas}}</span><br>
+          Email: <span class="text-white" id="mail">{{e}}</span><br>
+          Phone number: <span class="text-white" id="mobile">{{p}}</span><br><br><br>
+          <p style="font-size: 20px; margin-top:15px;">Add a new profile image: <input type="file" class="mt-5 text-center" style="margin-left: 20%;"></p><br>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-4 border-right" style="border-style: solid; border-radius: 8px; border-color: lightskyblue; border-width: medium; font-family: 'Comic Sans MS';">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Profile Settings</h4>
+        </div>
+        <div class="row mt-4">
+          <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="mb-3" class="form-Group" >
+              <label class = "form-label" for="account2">Account name: </label>
+              <div class="col-sm-8">
+                <input type = "text" id = "account2" class = "form-control" name = "account2" formControlName="account2" placeholder = "your account name"/>
+              </div>
+              <div
+                *ngIf="!account2?.valid && (account2?.dirty ||account2?.touched)">
+                <div [hidden]="!account2.errors?.pattern" id="username-error-msg" style="font-size: 12px; color: red">
+                  Account name must start with a letter
+                </div>
+              </div>
+            </div>
+
+              <div class="mb-3"  class="form-Group">
+                <label class = "form-label" for="email2">Email Address: </label>
+                <div class="col-sm-8">
+                  <input type = "email" id = "email2" id = "email2" class = "form-control" name = "email2" formControlName="email2" placeholder = "email address"/>
+                </div>
+                <div
+                  *ngIf="!email2?.valid && (email2?.dirty ||email2?.touched)">
+                  <div [hidden]="!email2.errors?.email" style="font-size: 12px; color: red">
+                    Invalid email address
+                  </div>
+                </div>
+
+
+              <div class="mb-4" class="form-Group">
+                <label class = "form-label" for="phone2">Phone Number: </label>
+                <div class="col-sm-8">
+                  <input type = "tel" id = "phone2" class = "form-control" name = "phone2" formControlName="phone2" placeholder = "1231231234"/>
+                </div>    <div
+                *ngIf="!phone2?.valid && (phone2?.dirty ||phone2?.touched)">
+                <div [hidden]="!phone2.errors?.pattern" style="font-size: 12px; color: red">
+                  Phone number must be a valid 10-digit number
+                </div>
+              </div>
+
+              </div>
+
+            </div>
+
+
+
+
+              <div class="mb-3" class="form-Group">
+                <label class = "form-label" for="pass1">Password: </label>
+                <div class="col-sm-8">
+                  <input type = "password" id = "pass1" class = "form-control" name = "pass1" formControlName="pass1" placeholder="new password"/>
+                </div>
+
+
+                <div class="offset-2 col-sm-8" style="margin-top: 10px;">
+                  <button type = "submit" class="btn btn-primary profile-button" [disabled]="!updateForm.valid">Update Profile</button>
+                </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

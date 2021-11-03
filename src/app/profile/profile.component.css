@@ -1,0 +1,82 @@
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: dodgerblue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.n{
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #BA68C8
+}
+
+.profile-button {
+  background-color: white;
+  box-shadow: none;
+  border: none;
+  color: dodgerblue;
+}
+
+.profile-button:hover {
+  background-color: darkgray;
+}
+
+.profile-button:focus {
+  background-color: mediumpurple;
+  box-shadow: none
+}
+
+.profile-button:active {
+  background-color: darkgray;
+  box-shadow: none
+}
+
+.back:hover {
+  color: #682773;
+  cursor: pointer
+}
+
+.labels {
+  font-size: 11px
+}
+
+.add-experience:hover {
+  background: #BA68C8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #BA68C8
+}
+
+span{
+  display:inline-block;
+}
+
+
+
